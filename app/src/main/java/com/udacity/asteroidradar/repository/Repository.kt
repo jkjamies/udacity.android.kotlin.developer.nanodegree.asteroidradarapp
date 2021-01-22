@@ -62,6 +62,7 @@ import java.time.LocalDate
 class Repository(private val database: AsteroidsDatabase) {
 
     // filter for the asteroid list defaulted to week
+    // conceptual suggestions provided in the udacity chat
     private val _filter =
         MutableLiveData(Filter.WEEK)
     val filter: LiveData<Filter>
@@ -79,6 +80,8 @@ class Repository(private val database: AsteroidsDatabase) {
 
     // switch map to transformations map list of asteroids as domain models to help filter the list
     // using week, today, all (saved - using db)
+    // https://developer.android.com/reference/android/arch/lifecycle/Transformations
+    // https://developer.android.com/reference/androidx/lifecycle/Transformations#switchMap(androidx.lifecycle.LiveData%3CX%3E,%20androidx.arch.core.util.Function%3CX,%20androidx.lifecycle.LiveData%3CY%3E%3E)
     @RequiresApi(Build.VERSION_CODES.O)
     val asteroids: LiveData<List<Asteroid>> = Transformations.switchMap(filter) { filter ->
         when (filter) {
@@ -111,6 +114,7 @@ class Repository(private val database: AsteroidsDatabase) {
 
     /**
      * Apply the filter for the asteroid list
+     * just as stated above, the conceptual suggestions were provided in the udacity chat
      */
     @RequiresApi(Build.VERSION_CODES.O)
     fun applyAsteroidFilter(filter: Filter) {

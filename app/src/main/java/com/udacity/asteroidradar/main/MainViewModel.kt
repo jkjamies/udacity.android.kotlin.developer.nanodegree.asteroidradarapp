@@ -51,6 +51,7 @@ import kotlinx.coroutines.launch
 
 /**
  * Main View Model for picture of the day and list of asteroids
+ * The DevByte Viewer in Lesson 3 was a great model for this
  */
 @RequiresApi(Build.VERSION_CODES.O)
 class MainViewModel(application: Application) : AndroidViewModel(application) {

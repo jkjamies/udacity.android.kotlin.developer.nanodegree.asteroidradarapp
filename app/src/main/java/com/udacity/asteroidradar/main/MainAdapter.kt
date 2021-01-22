@@ -50,6 +50,7 @@ import com.udacity.asteroidradar.databinding.AsteroidItemBinding
 
 /**
  * Adapter for main screen with asteroids and picture of the day showing.
+ * The DevByte Viewer in Lesson 3 was a great model for this
  */
 class MainAdapter(val clickListener: AsteroidClickListener) :
     ListAdapter<Asteroid, MainAdapter.AsteroidViewHolder>(AsteroidDiffCallback) {
