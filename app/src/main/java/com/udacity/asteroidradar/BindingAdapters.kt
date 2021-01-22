@@ -101,7 +101,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Asteroid>?) {
  */
 @BindingAdapter("pictureOfTheDay")
 fun bindPictureOfTheDay(imageView: ImageView, url: String?) {
-    Picasso.with(imageView.context).load(url)
+    Picasso.get().load(url)
         .placeholder(R.drawable.placeholder_picture_of_day)
         .error(R.drawable.placeholder_picture_of_day)
         .into(imageView)

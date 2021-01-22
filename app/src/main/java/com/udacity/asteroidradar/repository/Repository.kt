@@ -53,6 +53,7 @@ import com.udacity.asteroidradar.domain.asDatabaseModel
 import com.udacity.asteroidradar.domain.asDomainModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import java.time.LocalDate
 
 /**
@@ -107,7 +108,9 @@ class Repository(private val database: AsteroidsDatabase) {
     /**
      * Apply the filter for the asteroid list
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun applyAsteroidFilter(filter: Filter) {
+        Timber.i(startDate.toString())
         _filter.value = filter
     }
 

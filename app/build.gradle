@@ -48,8 +48,8 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
 
-    implementation "com.squareup.moshi:moshi:1.9.3"
-    implementation "com.squareup.moshi:moshi-kotlin:1.9.3"
+    implementation 'com.squareup.moshi:moshi:1.11.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.11.0'
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
@@ -61,7 +61,7 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
@@ -71,7 +71,7 @@ dependencies {
 
     implementation "android.arch.work:work-runtime-ktx:1.0.1"
 
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

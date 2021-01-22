@@ -51,6 +51,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import com.udacity.asteroidradar.domain.Filter
+import timber.log.Timber
 
 /**
  * Main fragment with the asteroid list and picture of the day
