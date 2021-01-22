@@ -67,9 +67,13 @@ class Repository(private val database: AsteroidsDatabase) {
     val filter: LiveData<Filter>
         get() = _filter
 
+    // start date is 'now' - this library is only available for Android O+, but it's simple
+    // so to make it work for older devices, a calendar object with manipulation might be needed
+    // so maybe this is ok just for this project?
     @RequiresApi(Build.VERSION_CODES.O)
     private val startDate = LocalDate.now()
 
+    // again, see above comment, but using this is just so easy - project calls for 'today' and 'a week'
     @RequiresApi(Build.VERSION_CODES.O)
     private val endDate = startDate.plusDays(7)
 
@@ -110,7 +114,6 @@ class Repository(private val database: AsteroidsDatabase) {
      */
     @RequiresApi(Build.VERSION_CODES.O)
     fun applyAsteroidFilter(filter: Filter) {
-        Timber.i(startDate.toString())
         _filter.value = filter
     }
 

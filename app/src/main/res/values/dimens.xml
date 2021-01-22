@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    margin sizes-->
     <dimen name="margin_double">16dp</dimen>
     <dimen name="margin">8dp</dimen>
+
+    <!--    text sizes-->
     <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
 </resources>

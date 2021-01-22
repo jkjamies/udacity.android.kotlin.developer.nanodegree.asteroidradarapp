@@ -56,15 +56,21 @@ class AsteroidRadarApplication : Application() {
 
     val applicationScope = CoroutineScope(Dispatchers.Default)
 
+    /**
+     * launch the recurring work on application scope dispatchers default coroutine
+     */
     private fun delayedInit() {
         applicationScope.launch {
             setupRecurringWork()
         }
     }
 
+    /**
+     * if network connection and battery not low and charging/plugged in, 1 time per day get asteroids
+     */
     private fun setupRecurringWork() {
         val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.UNMETERED)
+            .setRequiredNetworkType(NetworkType.CONNECTED)
             .setRequiresBatteryNotLow(true)
             .setRequiresCharging(true)
             .apply {
@@ -84,6 +90,10 @@ class AsteroidRadarApplication : Application() {
         )
     }
 
+    /**
+     * Set up timber and worker - timber not printing on local setup, not sure what is going on,
+     * all other apps are working, will look into this after submitting the project
+     */
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())

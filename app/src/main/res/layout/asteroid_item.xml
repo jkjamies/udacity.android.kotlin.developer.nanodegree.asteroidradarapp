@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~ PROJECT LICENSE
   ~
@@ -60,15 +59,13 @@
 
         <TextView
             android:id="@+id/asteroidNameTextView"
+            style="@style/TextStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_double"
             android:layout_marginTop="@dimen/margin_double"
             android:layout_marginBottom="@dimen/margin"
             android:text="@{asteroid.codename}"
-            android:textColor="@color/default_text_color"
-            android:textSize="@dimen/text_size_large"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/asteroidDateTimeTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -77,12 +74,12 @@
 
         <TextView
             android:id="@+id/asteroidDateTimeTextView"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_double"
             android:layout_marginBottom="@dimen/margin_double"
             android:text="@{asteroid.closeApproachDate}"
-            android:textColor="@color/default_text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -94,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_double"
+            android:contentDescription="@{asteroid.potentiallyHazardous ? @string/potentially_hazardous_asteroid_image : @string/not_hazardous_asteroid_image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

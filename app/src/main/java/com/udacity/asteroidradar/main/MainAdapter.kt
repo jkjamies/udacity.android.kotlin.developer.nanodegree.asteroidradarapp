@@ -45,6 +45,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.udacity.asteroidradar.Asteroid
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.AsteroidItemBinding
 
 /**
@@ -74,10 +75,15 @@ class MainAdapter(val clickListener: AsteroidClickListener) :
         fun bind(listener: AsteroidClickListener, asteroid: Asteroid) {
             binding.asteroid = asteroid
             binding.asteroidCallback = listener
+            val asteroidCodeNameString = binding.root.context.getString(R.string.asteroid_code_name)
+            val asteroidCloseApproachDateString =
+                binding.root.context.getString(R.string.close_approach_date)
+            val asteroidPotentiallyHazardousString =
+                binding.root.context.getString(R.string.potentially_hazardous)
             itemView.contentDescription =
-                "Asteroid: ${asteroid.codename} " +
-                        "${asteroid.closeApproachDate} potentially hazardous: " +
-                        "${asteroid.isPotentiallyHazardous}"
+                asteroidCodeNameString + asteroid.codename +
+                        asteroidCloseApproachDateString + asteroid.closeApproachDate +
+                        asteroidPotentiallyHazardousString + asteroid.isPotentiallyHazardous
         }
 
         /**
