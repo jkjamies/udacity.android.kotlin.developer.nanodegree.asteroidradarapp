@@ -127,14 +127,19 @@ class Repository(private val database: AsteroidsDatabase) {
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun refreshAsteroids() {
         withContext(Dispatchers.IO) {
-            // remove old asteroids previous to start date
-            database.asteroidDao.removeAsteroids(startDate.toString())
-            // get asteroids from start date to end date
-            val response = Network.asteroidService.getAsteroids(
-                startDate.toString(),
-                endDate.toString()
-            ).await()
-            database.asteroidDao.insertAll(*response.asDatabaseModel())
+            // try and catch if no network when started
+            try {
+                // remove old asteroids previous to start date
+                database.asteroidDao.removeAsteroids(startDate.toString())
+                // get asteroids from start date to end date
+                val response = Network.asteroidService.getAsteroids(
+                    startDate.toString(),
+                    endDate.toString()
+                ).await()
+                database.asteroidDao.insertAll(*response.asDatabaseModel())
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
@@ -143,8 +148,13 @@ class Repository(private val database: AsteroidsDatabase) {
      */
     suspend fun refreshPictureOfTheDay() {
         withContext(Dispatchers.IO) {
-            val response = Network.asteroidService.getPctureOfTheDay().await()
-            database.pictureOfTheDayDao.insertAll(response.asDatabaseModel())
+            // try and catch if no network when started
+            try {
+                val response = Network.asteroidService.getPctureOfTheDay().await()
+                database.pictureOfTheDayDao.insertAll(response.asDatabaseModel())
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }
